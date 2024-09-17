@@ -7,8 +7,8 @@ module.exports = defineConfig({
     },
   },
   env: {
-    email: 'gbocas@gmail.com',
-    loginPassword: '1234Ga',
-    loginUser: 'gabriel',
+    email: 'teste2@teste.com',
+    loginPassword: 'Teste3434',
+    loginUser: 'teste343455',
   },
 });

@@ -14,7 +14,7 @@ Git (para clonar o repositório)
 Siga os passos abaixo para configurar e rodar os testes em sua máquina:
 
 1. Clonar o Repositório
-git clone https://github.com/gabrielxxx1/Keeggo-Test
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
 
 2. Entrar no Diretório do Projeto
 cd nome-do-repositorio
@@ -59,4 +59,10 @@ Se você quiser rodar um arquivo de teste específico, use o seguinte comando:
 
 npx cypress run --spec "cypress/e2e/nomeDoTeste.cy.js"
 
-# Qualquer dúvida é só chamar!
+
+# Informação importante
+Tive problemas ao fazer o upload do arquivo via cypress, então o último exercício de atualizar a imagem só foi completado via Swagger/Postman.
+
+Link: https://prnt.sc/jsuwwpyG8eJK
+
+

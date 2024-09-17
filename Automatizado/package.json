@@ -11,6 +11,10 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "^13.14.2",
+    "cypress-file-upload": "^5.0.8",
     "cypress-fs": "^0.2.5"
+  },
+  "dependencies": {
+    "form-data": "^4.0.0"
   }
 }
