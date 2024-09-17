@@ -14,7 +14,7 @@ Git (para clonar o repositório)
 Siga os passos abaixo para configurar e rodar os testes em sua máquina:
 
 1. Clonar o Repositório
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/gabrielxxx1/Keeggo-Test
 
 2. Entrar no Diretório do Projeto
 cd nome-do-repositorio
