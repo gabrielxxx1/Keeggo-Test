@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "bf19fac3-a6f7-44f1-a9f0-a5a61caac130",
+		"name": "Keeggo Manual Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14414289",
+		"_collection_link": "https://warped-zodiac-940646.postman.co/workspace/Bocch's-Workspace~a18143a5-5d2d-42b1-89a0-f07442442b66/collection/14414289-bf19fac3-a6f7-44f1-a9f0-a5a61caac130?action=share&source=collection_link&creator=14414289"
+	},
+	"item": [
+		{
+			"name": "Search \"head\"",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"O status code é 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Todos os produtos retornados contêm o termo 'head'\", function () {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    let searchTerm = \"head\";\r",
+							"\r",
+							"    jsonData.forEach(function(category) {\r",
+							"        category.products.forEach(function(product) {\r",
+							"            // Verifica se o nome do produto contém o termo de busca (case-insensitive)\r",
+							"            pm.expect(product.productName.toLowerCase()).to.include(searchTerm.toLowerCase());\r",
+							"        });\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.advantageonlineshopping.com/catalog/api/v1/products/search?name=head",
+					"protocol": "https",
+					"host": [
+						"www",
+						"advantageonlineshopping",
+						"com"
+					],
+					"path": [
+						"catalog",
+						"api",
+						"v1",
+						"products",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "head"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Search \"head\"",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.advantageonlineshopping.com/catalog/api/v1/products/search?name=head",
+							"protocol": "https",
+							"host": [
+								"www",
+								"advantageonlineshopping",
+								"com"
+							],
+							"path": [
+								"catalog",
+								"api",
+								"v1",
+								"products",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "head"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.18.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 16 Sep 2024 23:39:41 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-store"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"categoryId\": 2,\n        \"categoryName\": \"HEADPHONES\",\n        \"categoryImageId\": \"headphones\",\n        \"products\": [\n            {\n                \"productId\": 12,\n                \"categoryId\": 2,\n                \"productName\": \"HP H2310 In-ear Headset\",\n                \"price\": 13.99,\n                \"imageUrl\": \"2100\"\n            },\n            {\n                \"productId\": 13,\n                \"categoryId\": 2,\n                \"productName\": \"Bose SoundLink Around-ear Wireless Headphones II\",\n                \"price\": 279.95,\n                \"imageUrl\": \"2300\"\n            },\n            {\n                \"productId\": 14,\n                \"categoryId\": 2,\n                \"productName\": \"Logitech USB Headset H390\",\n                \"price\": 39.99,\n                \"imageUrl\": \"2400\"\n            },\n            {\n                \"productId\": 15,\n                \"categoryId\": 2,\n                \"productName\": \"Beats Studio 2 Over-Ear Matte Black Headphones\",\n                \"price\": 179.99,\n                \"imageUrl\": \"2200\"\n            }\n        ]\n    }\n]"
+				}
+			]
+		}
+	]
+}
