@@ -32,15 +32,15 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
 
       // Carregar a imagem como multipart/form-data
       cy.fixture(imagePath, 'binary')
-        .then(Cypress.Blob.binaryStringToBlob)
-        .then((blob) => {
+        .then((fileContent) => {
+          const blob = Cypress.Blob.binaryStringToBlob(fileContent, 'image/jpeg');
           const formData = new FormData();
-          formData.append('file', blob, imagePath);
+
+          formData.append('file', blob, 'imgtestjpeg.jpg');
 
           // Adicionar o conteúdo do formulário e token de autorização
           const headers = {
             'Authorization': `Bearer ${token}`,
-            'Content-Type': 'multipart/form-data',
           };
 
           // Enviar requisição POST com a imagem
@@ -50,8 +50,9 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
             headers: headers,
             body: formData, // Envia o FormData
             encoding: 'binary', // Garante que os dados binários sejam enviados corretamente
+            responseType: 'arraybuffer',
           }).then((response) => {
-            //cy.log(JSON.stringify(response.body)); // Loga a resposta para depuração
+            cy.log(response); // Loga a resposta para depuração
             expect(response.status,'Status code').to.eq(200);
           });
         });
