@@ -5,7 +5,7 @@ class SearchResultsPage {
       .each(($el, index) => {
         const productName = $el.text();
         cy.log(`Produto visível ${index + 1}: ${productName}`);
-        expect(productName.toLowerCase()).to.include('laptop');
+        expect(productName.toLowerCase(), 'Produto encontrado').to.include('laptop');
       });
       }
     }

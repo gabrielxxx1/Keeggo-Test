@@ -22,8 +22,8 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
         'Content-Type': 'application/json',
       },
     }).then((response) => {
-      expect(response.status).to.eq(200);
-      expect(response.body.statusMessage.success).to.be.true;
+      expect(response.status,'Status code').to.eq(200);
+      expect(response.body.statusMessage.success,'Mensagem de sucesso identificada').to.be.true;
 
       const token = response.body.statusMessage.token;
 
@@ -43,7 +43,7 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
             'Content-Type': 'multipart/form-data',
           };
 
-          // Enviar requisição POST com multipart/form-data
+          // Enviar requisição POST com a imagem
           cy.request({
             method: 'POST',
             url: 'https://www.advantageonlineshopping.com/catalog/api/v1/product/image/579987985/1300/Blue?product_id=3',
@@ -51,8 +51,8 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
             body: formData, // Envia o FormData
             encoding: 'binary', // Garante que os dados binários sejam enviados corretamente
           }).then((response) => {
-            cy.log(JSON.stringify(response.body)); // Loga a resposta para depuração
-            expect(response.status).to.eq(200);
+            //cy.log(JSON.stringify(response.body)); // Loga a resposta para depuração
+            expect(response.status,'Status code').to.eq(200);
           });
         });
     });
