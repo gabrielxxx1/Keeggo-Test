@@ -60,9 +60,3 @@ Se você quiser rodar um arquivo de teste específico, use o seguinte comando:
 npx cypress run --spec "cypress/e2e/nomeDoTeste.cy.js"
 
 
-# Informação importante
-Tive problemas ao fazer o upload do arquivo via cypress, então o último exercício de atualizar a imagem só foi completado via Swagger/Postman.
-
-Link: https://prnt.sc/jsuwwpyG8eJK
-
-
