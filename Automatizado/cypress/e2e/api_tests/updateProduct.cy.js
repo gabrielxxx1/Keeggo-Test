@@ -52,8 +52,14 @@ describe('Envio de imagem usando multipart/form-data via Cypress', () => {
             encoding: 'binary', // Garante que os dados binários sejam enviados corretamente
             responseType: 'arraybuffer',
           }).then((response) => {
-            cy.log(response); // Loga a resposta para depuração
+            const textDecoder = new TextDecoder();
+            const responseText = textDecoder.decode(response.body);
+            const jsonResponse = JSON.parse(responseText);
+
+            expect(jsonResponse.reason, 'Mensagem de sucesso').to.eq('Product was updated successful');
+            expect(jsonResponse.imageId, 'Id da nova imagem').to.not.be.null;
             expect(response.status,'Status code').to.eq(200);
+        
           });
         });
     });
